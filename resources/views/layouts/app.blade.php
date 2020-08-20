@@ -70,11 +70,22 @@
                      @if(count(config('app.languages')) > 1)
                             <li class="nav-item dropdown d-md-down-none">
                                 <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                    @if(app()->getLocale() == 'en')
+                                    <span class="flag-icon flag-icon-gb"></span>
+                                    @else
+                                    <span class="flag-icon flag-icon-{{app()->getLocale()}}"></span>
+                                    @endif
                                     {{ strtoupper(app()->getLocale()) }}
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     @foreach(config('app.languages') as $langLocale => $langName)
-                                        <a class="dropdown-item" href="{{ url()->current() }}?change_language={{ $langLocale }}">{{ strtoupper($langLocale) }} ({{ $langName }})</a>
+                                <a class="dropdown-item" href="{{ url()->current() }}?change_language={{ $langLocale }}">
+                                    @if($langLocale == 'en')
+                                    <span class="flag-icon flag-icon-gb"></span>
+                                    @else
+                                    <span class="flag-icon flag-icon-{{$langLocale}}"></span>
+                                    @endif
+                                    {{ $langName }}</a>
                                     @endforeach
                                 </div>
                             </li>
