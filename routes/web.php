@@ -20,14 +20,9 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
-/* Route::get('locale/{lang}', function($lang){
-    App::setLocale($lang);
-    Session::put('app_locale', $lang);
-    return redirect()->back();
-}); */
-Route::get('login/{locale}', function ($locale) {
-    App::setLocale($locale);
-    return redirect()->back();
-
-    //
-});
+Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::post('/editprofile', 'ProfileController@edit')->name('editprofile');
+Route::get('/patients','PatientController@index')->name('patients');
+Route::get('/rencontres/{id}','RencontreController@list')->name('rencontres');
+Route::post('/patients/search','PatientController@search')->name('patient_search');
+Route::post('upload_image', 'ProfileController@store_image')->name('upload_image');

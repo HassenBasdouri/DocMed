@@ -56075,6 +56075,8 @@ __webpack_require__.r(__webpack_exports__);
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./search_patient */ "./resources/js/search_patient.js");
+
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
@@ -56211,6 +56213,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/search_patient.js":
+/*!****************************************!*\
+  !*** ./resources/js/search_patient.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$('body').on('keyup', '#search', function () {
+  var search = $(this).val();
+  $.ajax({
+    method: 'POST',
+    url: route,
+    dataType: 'json',
+    data: {
+      '_token': token,
+      search: search
+    },
+    success: function success(res) {
+      var tableRow = '';
+      $('#tbody_patients').html('');
+      $.each(res, function (index, value) {
+        tableRow = '<tr><th scope="row">' + value.id + '</th><td>' + value.name + '</td><td>' + value.lastname + '</td><td>' + value.CNAM + '</td><td>' + value.cin + '</td><td><a href="' + routeRe + '/' + value.id + '">consulter</a></td></tr>';
+        $('#tbody_patients').append(tableRow);
+      });
+    }
+  });
+});
 
 /***/ }),
 

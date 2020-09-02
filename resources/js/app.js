@@ -5,6 +5,7 @@
  */
 
 require('./bootstrap');
+require('./search_patient');
 import 'flag-icon-css/css/flag-icon.css';
 window.Vue = require('vue');
 
