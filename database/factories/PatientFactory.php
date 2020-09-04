@@ -13,6 +13,6 @@ $factory->define(Patient::class, function (Faker $faker) {
         'birth'=>$faker->date(),
         'phone'=>$faker->phoneNumber(),
         'profession'=>$faker->jobTitle(),
-        'CNAM'=>$faker->numerify('CA#######'),
+        'cnam'=>$faker->numerify('CA#######'),
     ];
 });

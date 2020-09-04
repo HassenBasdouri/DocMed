@@ -34,7 +34,7 @@ class RencontreController extends Controller
         //
         $id =$request->id;
         $data= DB::table('rencontres')->where('patient_id','=',$id)->where('user_id','=',Auth::user()->id)->orderBy('date', 'asc')->paginate(1);
-        $user=DB::table('users')->where('id','=',$id)->get();
+        $user=DB::table('patients')->where('id','=',$id)->get();
         return view('rencontres',['data'=> $data,'user'=>$user]);
     }
 

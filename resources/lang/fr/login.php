@@ -16,7 +16,7 @@ return [
     'birth'=>'Date de naissance ',
     'phone'=>'Numéro de téléphone',
     'profession'=>'Profession',
-    'CNAM'=>'Numéro de sécurité sociale',
+    'cnam'=>'Numéro de sécurité sociale',
     'search'=>'Commencez à saisir l\'une des informations ci-dessous pour rechercher un patient',
     'dateRe'=>'Date de la rencontre',
     'typeContact'=>'Type de contact',
@@ -27,4 +27,5 @@ return [
     'rencontre'=>'Rencontre',
     'patients'=>'Patients',
     'nouvelleRE'=>'Nouvelle rencontre',
+    'cin'=>'Numéro carte idéntité national',
 ];

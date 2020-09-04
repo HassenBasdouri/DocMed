@@ -16,7 +16,7 @@ return [
     'birth'=>'Birth date ',
     'phone'=>'Phone number',
     'profession'=>'Profession',
-    'CNAM'=>'Social Security number',
+    'cnam'=>'Social Security number',
     'search'=>'Start typing one of the information below to search a patient',
     'dateRe'=>'Date of the meeting',
     'typeContact'=>'Contact type',
@@ -27,4 +27,5 @@ return [
     'rencontre'=>'Meeting',
     'patients'=>'Patients',
     'nouvelleRE'=>'New Meeting',
+    'cin'=>'National identity card number',
 ];

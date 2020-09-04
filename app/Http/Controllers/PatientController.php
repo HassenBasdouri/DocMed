@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PatientForm;
 use App\Patient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +21,7 @@ class PatientController extends Controller
     public function index()
     {
         $data= DB::table('patients')->orderBy('name', 'asc')->paginate(5);
-        return view('patients',['data'=> $data]);
+        return view('patients.index',['data'=> $data]);
     }
 
     /**
@@ -31,6 +32,7 @@ class PatientController extends Controller
     public function create()
     {
         //
+        return view('patients.create');
     }
 
     /**
@@ -39,9 +41,31 @@ class PatientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PatientForm $request)
     {
         //
+        
+        $request->validate([
+            'name' => 'required|min:3',
+            'lastname' => 'required|min:3',
+            'cin' => 'required|numeric',
+            'birth' => 'required|date',
+            'phone' => 'required',
+            'profession' => 'required|max:60|min:5',
+            'cnam' => 'required|max:14|min:8',
+        ]);
+        
+        $patient = new Patient();
+        $patient->name = $request->get('name');
+        $patient->lastname = $request->get('lastname');
+        $patient->cin = $request->get('cin');
+        $patient->birth =$request->get('birth');
+        $patient->phone = $request->get('phone');
+        $patient->profession = $request->get('profession');
+        $patient->cnam = $request->get('cnam');
+        $patient->save();
+        return redirect('/patients')->with('success', 'Patient saved!');
+        
     }
 
     /**
@@ -68,7 +92,7 @@ class PatientController extends Controller
                                         ->where('name','like','%'.$search.'%')
                                         ->orWhere('cin','like','%'.$search.'%')
                                         ->orWhere('lastname','like','%'.$search.'%')
-                                        ->orWhere('CNAM','like','%'.$search.'%')
+                                        ->orWhere('cnam','like','%'.$search.'%')
                                         ->orderBy('name', 'asc')
                                         ->get();
         return json_encode($patients);
@@ -80,9 +104,11 @@ class PatientController extends Controller
      * @param  \App\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function edit(Patient $patient)
+    public function edit($id)
     {
         //
+        $patient=Patient::find($id);
+        return view('patients.create',compact('patient'));
     }
 
     /**
@@ -92,9 +118,28 @@ class PatientController extends Controller
      * @param  \App\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Patient $patient)
+    public function update(PatientForm $request, Patient $patient)
     {
         //
+        $request->validate([
+            'name' => 'required',
+            'lastname' => 'required',
+            'cin' => 'required|numeric',
+            'birth' => 'required|date',
+            'phone' => 'required',
+            'profession' => 'required|max:60|min:5',
+            'cnam' => 'required|max:14|min:8',
+        ]);        
+            $patient->name = $request->get('name');
+            $patient->lastname = $request->get('lastname');
+            $patient->cin = $request->get('cin');
+            $patient->birth =$request->get('birth');
+            $patient->phone = $request->get('phone');
+            $patient->profession = $request->get('profession');
+            $patient->cnam = $request->get('cnam');
+        $patient->save();
+       return redirect('/patients')->with('success', 'Patient updated!');
+       
     }
 
     /**

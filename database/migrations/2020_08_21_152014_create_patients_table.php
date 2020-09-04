@@ -21,7 +21,7 @@ class CreatePatientsTable extends Migration
             $table->date('birth',20);
             $table->string('phone');
             $table->string('profession');
-            $table->string('CNAM');
+            $table->string('cnam');
             $table->timestamps();
         });
     }
