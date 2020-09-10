@@ -25,7 +25,7 @@ return [
     'decisions'=>'Décisions',
     'listeRe'=>'Liste des rencontres',
     'rencontre'=>'Rencontre',
-    'patients'=>'Patients',
+    'patient'=>'Patient',
     'nouvelleRE'=>'Nouvelle rencontre',
     'cin'=>'Numéro carte idéntité national',
 ];

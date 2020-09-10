@@ -41,6 +41,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('patients.index') }}">{{ __('login.patientlist') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('rendezvous.index') }}">{{ __('My appointments') }}</a>
+                        </li>
                     </ul>
                     @endguest
 
@@ -102,6 +105,22 @@
                 </div>
             </div>
         </nav>
+        @if (session()->has('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ __(session()->get('success')) }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+        @if (session()->has('danger'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ __(session()->get('danger')) }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
         <main class="py-4">
             @yield('content')
         </main>

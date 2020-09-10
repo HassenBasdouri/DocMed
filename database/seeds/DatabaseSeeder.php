@@ -1,5 +1,6 @@
 <?php
 
+use App\RendezVous;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(PatientSeeder::class);
         $this->call(RencontreSeeder::class);
+        $this->call(RendezVousSeeder::class);
     }
 }

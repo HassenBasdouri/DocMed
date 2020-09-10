@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.14.0",
-        "flag-icon-css": "^3.5.0"
+        "flag-icon-css": "^3.5.0",
+        "selectize": "^0.12.6"
     }
 }

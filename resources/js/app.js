@@ -6,6 +6,8 @@
 
 require('./bootstrap');
 require('./search_patient');
+require('selectize/dist/js/standalone/selectize');
+import('selectize/dist/css/selectize.css');
 import 'flag-icon-css/css/flag-icon.css';
 window.Vue = require('vue');
 

@@ -25,7 +25,7 @@ return [
     'decisions'=>'Decisions',
     'listeRe'=>'Meeting list',
     'rencontre'=>'Meeting',
-    'patients'=>'Patients',
+    'patient'=>'Patient',
     'nouvelleRE'=>'New Meeting',
     'cin'=>'National identity card number',
 ];

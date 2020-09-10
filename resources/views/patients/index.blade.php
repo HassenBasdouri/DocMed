@@ -12,7 +12,7 @@
                     <input type="text" id="search" class="form-control" placeholder="{{__('login.search')}}" aria-label="search" aria-describedby="basic-addon1">
                     </div>
                     <a  type="button" class="btn btn-primary" href="{{ route('patients.create') }}">{{__('New patient')}}</a><br><br>
-<table class="table">
+<table class="table" id="patientTable">
     <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>
@@ -21,7 +21,8 @@
         <th scope="col">{{__('login.cnam')}}</th>
         <th scope="col">{{__('CIN')}}</th>
         <th scope="col">{{__('Edit')}}</th>
-      <th scope="col">{{__('login.listeRe')}}</th>
+        <th scope="col">{{__('Details')}}</th>
+      <th scope="col">{{__('login.rencontre')}}s</th>
       </tr>
     </thead>
     <tbody id="tbody_patients">
@@ -32,8 +33,10 @@
         <td>{{$item->lastname}}</td>
         <td>{{$item->cnam}}</td>
         <td>{{$item->cin}}</td>
-      <td><a href="{{ url('/patients/'.$item->id.'/edit') }}">{{__('Edit')}}</a></td>
-      <td><a href="{{ route('rencontres',$item->id) }}">{{__('login.listeRe')}}</a></td>
+      <td><a href="{{ url('/patients/'.$item->id.'/edit') }}"><i class="fas fa-edit fa-xs"></i></a> </td>
+      <td> <a href="#"> <i class="fas fa-eye fa-xs"></i> </a></td>
+      <td><a href="{{ route('patients.rencontres',["id"=>$item->id]) }}">{{__('login.listeRe')}}</a>
+        <a href="{{ route('rencontres.create',["id"=>$item->id]) }}">{{__('login.nouvelleRE')}}</a></td>
       </tr>
       @endforeach
     </tbody>
@@ -45,11 +48,14 @@
     </div>
 </div>
 <script>
+    //traduction des url pour le js
     var route = "{{ route('patient_search') }}";
-    var routeRe ="{{ url('rencontres') }}";
+    var routeRe ="{{ url('patients') }}";
     var routeEdit="{{route('patients.index')}}";
+    var routeNew="{{ route('rencontres.create') }}";
     var token = "{{ csrf_token()}}";
-    var tradEdit="{{__('Edit')}}";
+    //traduction des message pour le js
     var tradList="{{__('login.listeRe')}}";
+    var tradNewMeeting="{{__('login.nouvelleRE')}}"
 </script>
 @endsection

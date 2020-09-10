@@ -15,4 +15,8 @@ class Patient extends Model
         'cnam',
         'profession'
     ];
+    public function rendezvouses()
+    {
+        return $this->hasMany('App\RendezVous');
+    }
 }

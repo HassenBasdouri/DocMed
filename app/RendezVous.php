@@ -4,14 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Rencontre extends Model
+class RendezVous extends Model
 {
+    //
     protected $fillable = [
         'date',
-        'type_contact',
-        'donnees_significatives',
-        'conclusion',
-        'decisions',
+        'time',
         'patient_id',
         'user_id',
     ];
