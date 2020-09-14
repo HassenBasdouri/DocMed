@@ -18,7 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- icon -->
+    <!-- icon  -->
     <link rel="icon" href="{{url('images/img/docmed_logo.ico')}}">
 </head>
 <body>
