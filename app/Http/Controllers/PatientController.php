@@ -44,7 +44,7 @@ class PatientController extends Controller
     public function store(PatientForm $request)
     {
         //
-        
+
         $request->validate([
             'name' => 'required|min:3',
             'lastname' => 'required|min:3',
@@ -54,7 +54,7 @@ class PatientController extends Controller
             'profession' => 'required|max:60|min:5',
             'cnam' => 'required|max:14|min:8',
         ]);
-        
+
         $patient = new Patient();
         $patient->name = $request->get('name');
         $patient->lastname = $request->get('lastname');
@@ -65,7 +65,7 @@ class PatientController extends Controller
         $patient->cnam = $request->get('cnam');
         $patient->save();
         return redirect('/patients')->with('success', 'Patient saved!');
-        
+
     }
 
     /**
@@ -77,6 +77,7 @@ class PatientController extends Controller
     public function show(Patient $patient)
     {
         //
+        return view('patients.show',['patient'=>$patient]);
     }
      /**
      * Search the specified resource.
@@ -129,7 +130,7 @@ class PatientController extends Controller
             'phone' => 'required',
             'profession' => 'required|max:60|min:5',
             'cnam' => 'required|max:14|min:8',
-        ]);        
+        ]);
             $patient->name = $request->get('name');
             $patient->lastname = $request->get('lastname');
             $patient->cin = $request->get('cin');
@@ -138,8 +139,8 @@ class PatientController extends Controller
             $patient->profession = $request->get('profession');
             $patient->cnam = $request->get('cnam');
         $patient->save();
-       return redirect('/patients')->with('success', 'Patient updated!');
-       
+       return redirect('/patients/'.$patient->id)->with('success', 'Patient updated!');
+
     }
 
     /**

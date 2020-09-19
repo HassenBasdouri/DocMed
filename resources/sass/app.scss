@@ -1,9 +1,19 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-
+@import url('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback');
 // Variables
 @import 'variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/bootstrap.scss';
 @import '~@fortawesome/fontawesome-free/css/all.css';
+@import '~admin-lte/build/scss/AdminLTE.scss';
+@import '~selectize/dist/css/selectize.css';
+@import '~flag-icon-css/css/flag-icon.css';
+@import '~admin-lte/plugins/fullcalendar/main.css';
+@import '~admin-lte/plugins/fullcalendar-daygrid/main.min.css';
+@import '~admin-lte/plugins/fullcalendar-timegrid/main.min.css';
+@import '~admin-lte/plugins/fullcalendar-bootstrap/main.min.css';
+@import '~admin-lte/dist/css/adminlte.min.css';
+@import '~admin-lte';

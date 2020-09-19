@@ -3,12 +3,16 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-
-require('./bootstrap');
-require('./search_patient');
-require('selectize/dist/js/standalone/selectize');
-import('selectize/dist/css/selectize.css');
-import 'flag-icon-css/css/flag-icon.css';
+require('./bootstrap.js');
+require ('admin-lte/plugins/jquery-ui/jquery-ui.min');
+require ('selectize');
+global.moment = require ('moment/moment');
+require ('admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js');
+require ('admin-lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js');
+require ('admin-lte/dist/js/adminlte.js');
+require ('./search_patient');
+require('./calendar_dashboard');
+require('admin-lte/dist/js/demo');
 window.Vue = require('vue');
 
 /**

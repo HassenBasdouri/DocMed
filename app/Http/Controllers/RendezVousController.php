@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Dto\RendezVous as DtoRendezVous;
 use App\Patient;
 use App\RendezVous;
 use Illuminate\Http\Request;
@@ -11,6 +12,10 @@ use Illuminate\Support\Facades\DB;
 
 class RendezVousController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth','verified']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -101,7 +106,15 @@ class RendezVousController extends Controller
     {
         //
     }
-
+    public function search(Request $request)
+    {
+        $id=Auth::user()->id;
+        $events=RendezVous::where('user_id','=',$id)->get();
+        $events->transform(function ($item, $key) {
+            return DtoRendezVous::fromModel($item);
+        });
+        return json_encode($events);
+    }
     /**
      * Remove the specified resource from storage.
      *

@@ -21,7 +21,6 @@
         <th scope="col">{{__('login.cnam')}}</th>
         <th scope="col">{{__('CIN')}}</th>
         <th scope="col">{{__('Edit')}}</th>
-        <th scope="col">{{__('Details')}}</th>
       <th scope="col">{{__('login.rencontre')}}s</th>
       </tr>
     </thead>
@@ -29,12 +28,11 @@
         @foreach($data as $item)
       <tr>
         <th scope="row">{{$item->id}}</th>
-      <td>{{$item->name}}</td>
+      <td><a href="{{ url('/patients/'.$item->id) }}">{{$item->name}}</a></td>
         <td>{{$item->lastname}}</td>
         <td>{{$item->cnam}}</td>
         <td>{{$item->cin}}</td>
       <td><a href="{{ url('/patients/'.$item->id.'/edit') }}"><i class="fas fa-edit fa-xs"></i></a> </td>
-      <td> <a href="#"> <i class="fas fa-eye fa-xs"></i> </a></td>
       <td><a href="{{ route('patients.rencontres',["id"=>$item->id]) }}">{{__('login.listeRe')}}</a>
         <a href="{{ route('rencontres.create',["id"=>$item->id]) }}">{{__('login.nouvelleRE')}}</a></td>
       </tr>
@@ -47,15 +45,4 @@
         </div>
     </div>
 </div>
-<script>
-    //traduction des url pour le js
-    var route = "{{ route('patient_search') }}";
-    var routeRe ="{{ url('patients') }}";
-    var routeEdit="{{route('patients.index')}}";
-    var routeNew="{{ route('rencontres.create') }}";
-    var token = "{{ csrf_token()}}";
-    //traduction des message pour le js
-    var tradList="{{__('login.listeRe')}}";
-    var tradNewMeeting="{{__('login.nouvelleRE')}}"
-</script>
 @endsection

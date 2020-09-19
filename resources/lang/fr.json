@@ -74,5 +74,16 @@
     "Details":"Détails",
     "Date":"Date",
     "Time":"Temps",
-    "Unregistered appointment! You shoud respect an interval of 30 minutes (± 15 minutes) between appointments.":"Rendez-vous non enregistré! Vous deviez respectez un intervalle de 30 minutes (± 15 minutes ) entre les rendez-vous ."
+    "Unregistered appointment! You shoud respect an interval of 30 minutes (± 15 minutes) between appointments.":"Rendez-vous non enregistré! Vous deviez respectez un intervalle de 30 minutes (± 15 minutes ) entre les rendez-vous .",
+    "More info":"Plus d'info",
+    "Patient files":"Fichiers patient",
+    "Doctor":"Médecin",
+    "Upload a different photo":"Télécharger une autre photo",
+    "Upload":"Télécharger",
+    "Browse to Choose an image":"Parcourir pour choisir une image",
+    "Settings":"Paramètres",
+    "You have successfully changed your name.":"Vous avez changé votre nom avec succès.",
+    "You have successfully changed your lastname.":"Vous avez changé votre prénom avec succès.",
+    "Operations ":"Opérations",
+    "You have successfully changed your password. ":"Vous avez changé votre mot de passe avec succès."
 }
