@@ -32,3 +32,6 @@ Route::post('change_password','ProfileController@change_password')->name('change
 Route::resource('patients', 'PatientController');
 Route::resource('rencontres', 'RencontreController');
 Route::resource('rendezvous', 'RendezVousController');
+Route::get('patient/{id}/images','PatientController@show_images')->name('show_images');
+Route::post('/images/store','ImageController@store_image')->name('store_image');
+Route::get('images/create','ImageController@create')->name('images.create');

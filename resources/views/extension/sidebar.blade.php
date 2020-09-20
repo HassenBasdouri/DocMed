@@ -54,10 +54,18 @@
           </a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
+            <a  class="nav-link {{ (request()->is('patients/create')) ? 'active' : '' }}"  href="{{ route('patients.create') }}">
+              <i class=" nav-icon fas ion-person-add"></i>
               <p>
-                {{_('Patient files')}}
+                {{__('New patient')}}
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a  class="nav-link {{ (request()->is('images/create')) ? 'active' : '' }}"  href="{{ route('images.create') }}">
+              <i class=" nav-icon fas fa-images"></i>
+              <p>
+                {{__('New image')}}
               </p>
             </a>
           </li>

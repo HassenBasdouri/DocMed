@@ -13,6 +13,8 @@ require ('admin-lte/dist/js/adminlte.js');
 require ('./search_patient');
 require('./calendar_dashboard');
 require('admin-lte/dist/js/demo');
+require('admin-lte//plugins/ekko-lightbox/ekko-lightbox.min.js');
+require ('admin-lte/plugins/filterizr/jquery.filterizr.min.js');
 window.Vue = require('vue');
 
 /**

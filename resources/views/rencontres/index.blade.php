@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('login.rencontre') }}(s) : {{$patient[0]->name}} {{ $patient[0]->lastname}}</div>
+                <div class="card-header">{{ __('login.rencontre') }}(s) :  <a href="{{route('patients.show',$patient[0]->id)}}">{{$patient[0]->name}} {{ $patient[0]->lastname}}</a></div>
                 <div class="card-body">
                 <a  type="button" class="btn btn-primary" href="{{ route('rencontres.create',['id'=>$patient[0]->id]) }}">{{__('login.nouvelleRE')}}</a>
 <table class="table">

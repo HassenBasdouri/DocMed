@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PatientForm;
+use App\Image;
 use App\Patient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -142,7 +143,11 @@ class PatientController extends Controller
        return redirect('/patients/'.$patient->id)->with('success', 'Patient updated!');
 
     }
-
+    public function show_images($id){
+        $patient=Patient::find($id);
+        $images=Image::where('patient_id','=',$id)->get();
+        return view('patients.show_image',['images'=>$images,'patient'=>$patient]);
+    }
     /**
      * Remove the specified resource from storage.
      *

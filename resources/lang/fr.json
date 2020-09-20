@@ -85,5 +85,8 @@
     "You have successfully changed your name.":"Vous avez changé votre nom avec succès.",
     "You have successfully changed your lastname.":"Vous avez changé votre prénom avec succès.",
     "Operations ":"Opérations",
-    "You have successfully changed your password. ":"Vous avez changé votre mot de passe avec succès."
+    "You have successfully changed your password. ":"Vous avez changé votre mot de passe avec succès.",
+    "Meeting Rate":"Taux de visite",
+    "New image":"Nouvelle image",
+    "Calendar":"Calendrier"
 }

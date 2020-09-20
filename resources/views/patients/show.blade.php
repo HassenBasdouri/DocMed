@@ -52,6 +52,7 @@
                             <a class="btn btn-primary" href="{{ url('/patients/' . $patient->id . '/edit') }}">{{ __('Edit') }} </a>
                             <a class="btn btn-primary" href="{{ route('patients.rencontres', ['id' => $patient->id]) }}">{{ __('login.listeRe') }}</a>
                             <a class="btn btn-primary" href="{{ route('rencontres.create', ['id' => $patient->id]) }}">{{ __('login.nouvelleRE') }}</a>
+                            <a class="btn btn-primary" href="{{ route('show_images', ['id' => $patient->id]) }}">{{ __('Images') }}</a>
                         </div>
                         <!-- /.card-body -->
                     </div>

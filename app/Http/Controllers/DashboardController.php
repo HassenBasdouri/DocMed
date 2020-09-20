@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Patient;
+use App\Rencontre;
+use App\RendezVous;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -24,7 +27,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $count = Patient::count();
-        return view('dashboard',['number'=>$count]);
+        $countPatient = Patient::count();
+        $allRencontre=RendezVous::count();
+        $countRendezvous=RendezVous::where('user_id','=',Auth::user()->id)->count();
+        return view('dashboard',['number'=>$countPatient,'numberRencontre'=> round($allRencontre/$countRendezvous,2)]);
     }
 }
