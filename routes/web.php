@@ -33,5 +33,8 @@ Route::resource('patients', 'PatientController');
 Route::resource('rencontres', 'RencontreController');
 Route::resource('rendezvous', 'RendezVousController');
 Route::get('patient/{id}/images','PatientController@show_images')->name('show_images');
+Route::get('patient/{id}/documents','PatientController@show_documents')->name('show_documents');
 Route::post('/images/store','ImageController@store_image')->name('store_image');
 Route::get('images/create','ImageController@create')->name('images.create');
+Route::post('/documents/s/store','DocumentController@store')->name('store_doc');
+Route::get('documents/create','DocumentController@create')->name('documents.create');

@@ -14,6 +14,7 @@ $factory->define(Image::class, function (Faker $faker) {
         //
         'patient_id'=>$faker->randomElement($patients),
         'user_id'=>$faker->randomElement($users),
+        'type'=>random_int(1,4),
         'description'=>$faker->paragraph(),
         'path'=>$faker->image($dir = public_path('storage/images/img'), $width = 640, $height = 480,$category='abstract', $fullPath=false),
     ];

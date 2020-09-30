@@ -30,6 +30,6 @@ class DashboardController extends Controller
         $countPatient = Patient::count();
         $allRencontre=RendezVous::count();
         $countRendezvous=RendezVous::where('user_id','=',Auth::user()->id)->count();
-        return view('dashboard',['number'=>$countPatient,'numberRencontre'=> round($allRencontre/$countRendezvous,2)]);
+        return view('dashboard',['number'=>$countPatient,'numberRencontre'=> round($countRendezvous/$allRencontre*100,2)]);
     }
 }

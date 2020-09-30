@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Document;
 use App\Http\Requests\PatientForm;
 use App\Image;
 use App\Patient;
@@ -147,6 +148,11 @@ class PatientController extends Controller
         $patient=Patient::find($id);
         $images=Image::where('patient_id','=',$id)->get();
         return view('patients.show_image',['images'=>$images,'patient'=>$patient]);
+    }
+    public function show_documents($id){
+        $patient=Patient::find($id);
+        $documents=Document::where('patient_id','=',$id)->get();
+        return view('patients.show_documents',['documents'=>$documents,'patient'=>$patient]);
     }
     /**
      * Remove the specified resource from storage.

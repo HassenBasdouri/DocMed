@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', __('New image'))
+@section('title', __('New document'))
 
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('New image') }}</div>
+                    <div class="card-header">{{ __('New document') }}</div>
 
                     <div class="card-body">
                         @if ($errors->any())
@@ -19,7 +19,7 @@
                                 </ul>
                             </div>
                         @endif
-                        <form class="flex flex-col w-full" method="POST" action="{{ route('store_image') }}" enctype="multipart/form-data">
+                        <form class="flex flex-col w-full" method="POST" action="{{ route('store_doc') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="flex w-full">
                                 {{-- form input element --}}
@@ -27,7 +27,7 @@
                                     <label for="patient_id"
                                         class="col-md-4 col-form-label text-md-right">{{ __('login.patient') }}</label>
                                     <div class="col-md-6">
-                                        <select name="patient_id" id="select_client" class="form-control
+                                        <select name="patient_id" id="select_client" class="
                                                     @error('patient_id') border-red-500 @enderror"
                                             value="{{ old('patient_id') }}"
                                             data-live-search="true" title="Select Patient" required>
@@ -61,17 +61,18 @@
                                         @error('type')
                                         <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                         @enderror
-                                    </div
+                                    </div>
+                                </div>
                                 {{-- form input element --}}
                                 <div class="form-group row">
-                                    <label for="image"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('Image') }}</label>
+                                    <label for="doc"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('Document') }}</label>
                                     <div class="col-md-6">
-                                        <input  id="image" type="file" required name="image"
-                                            value="{{ old('image') }}" class="form-control
-                                            @error('image') border-red-500 @enderror">
+                                        <input  id="doc" type="file" required name="doc"
+                                            value="{{ old('doc') }}" class="form-control
+                                            @error('doc') border-red-500 @enderror">
 
-                                        @error('image')
+                                        @error('doc')
                                         <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                         @enderror
                                     </div>
@@ -90,7 +91,6 @@
                                         @enderror
                                     </div>
                                 </div>
-
                             </div>
                             <button class="btn btn-primary" type="submit">Save </button>
                         </form>

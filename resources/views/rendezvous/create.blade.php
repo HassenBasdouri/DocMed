@@ -61,7 +61,7 @@
                                 <label for="patient_id"
                                     class="col-md-4 col-form-label text-md-right">{{ __('login.patient') }}</label>
                                 <div class="col-md-6">
-                                    <select name="patient_id" id="patient_id" class="form-control
+                                    <select name="patient_id" id="select_client" class="
                                                 @error('patient_id') border-red-500 @enderror"
                                         value="{{ old('patient_id', $rendezvous->patient_id ?? '') }}"
                                         data-live-search="true" title="Select Patient" required>

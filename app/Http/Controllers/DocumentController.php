@@ -2,18 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ImageFrom;
-use App\Image;
+use App\Document;
 use App\Patient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ImageController extends Controller
+class DocumentController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'verified']);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -33,7 +28,7 @@ class ImageController extends Controller
     {
         //
         $patients = Patient::all();
-        return view('new_images', ['patients' => $patients]);
+        return view('new_docs', ['patients' => $patients]);
     }
 
     /**
@@ -42,33 +37,34 @@ class ImageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store_image(Request $request)
+    public function store(Request $request)
     {
         //
-       $request->validate([
-            'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        $request->validate([
+            'doc' => 'required|mimes:pdf,jpeg,png,jpg,gif,svg|max:9226',
             'description'=>'required',
             'patient_id'=>'required',
         ]);
-        $imagename = $request->image->hashName();
-        $request->file('image')->store('images/img', 'public');
-        $image= new Image(['path'=>$imagename,
+        $docname = $request->doc->hashName();
+        $request->file('doc')->store('doc', 'public');
+        $doc= new Document(['path'=>$docname,
         'description'=>$request->get('description'),
         'patient_id'=>$request->get('patient_id'),
         'type'=>$request->get('type'),
+        'libelle'=>$request->file('doc')->getClientOriginalName(),
         'user_id' => Auth::user()->id]);
-        $image->save();
-        $request->session()->flash('success', 'You have successfully upload an image.');
-        return redirect('patient/'.$request->get('patient_id').'/images');
+        $doc->save();
+        $request->session()->flash('success', 'You have successfully upload a document.');
+        return redirect('patient/'.$request->get('patient_id').'/documents');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Image  $image
+     * @param  \App\Document  $document
      * @return \Illuminate\Http\Response
      */
-    public function show(Image $image)
+    public function show(Document $document)
     {
         //
     }
@@ -76,10 +72,10 @@ class ImageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Image  $image
+     * @param  \App\Document  $document
      * @return \Illuminate\Http\Response
      */
-    public function edit(Image $image)
+    public function edit(Document $document)
     {
         //
     }
@@ -88,10 +84,10 @@ class ImageController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Image  $image
+     * @param  \App\Document  $document
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Image $image)
+    public function update(Request $request, Document $document)
     {
         //
     }
@@ -99,10 +95,10 @@ class ImageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Image  $image
+     * @param  \App\Document  $document
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Image $image)
+    public function destroy(Document $document)
     {
         //
     }

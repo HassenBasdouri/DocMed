@@ -16,8 +16,8 @@ Class RendezVous extends DataTransferObject
     {
         return new static([
             'title'=>$rendezvous->patient->name.' '.$rendezvous->patient->lastname,
-            'start'=>date('c',strtotime($rendezvous->date.' '.date('H:i:s',strtotime($rendezvous->time)))),
-            'end'=>date('c',strtotime($rendezvous->date.' '.date('H:i:s',strtotime("+30 minutes",strtotime($rendezvous->time))))),
+            'start'=>date('c',strtotime($rendezvous->date.' '.date('H:i:s',strtotime("-60 minutes",strtotime($rendezvous->time))))),
+            'end'=>date('c',strtotime($rendezvous->date.' '.date('H:i:s',strtotime("-30 minutes",strtotime($rendezvous->time))))),
             'url'=>url("/patients/{$rendezvous->patient->id}"),
             'backgroundColor'=>'#' . str_pad(dechex(mt_rand(0, 0xFFFFFF)), 6, '0', STR_PAD_LEFT),
             'borderColor'=>'#' . str_pad(dechex(mt_rand(0, 0xFFFFFF)), 6, '0', STR_PAD_LEFT),

@@ -21,7 +21,7 @@ $('body').on('keyup','#search',function(){
 });
 
 $(document).ready(function () {
-    $('select').selectize({
+    $('#select_client').selectize({
         sortField: 'text'
     });
 });

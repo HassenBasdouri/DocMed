@@ -88,5 +88,12 @@
     "You have successfully changed your password. ":"Vous avez changé votre mot de passe avec succès.",
     "Meeting Rate":"Taux de visite",
     "New image":"Nouvelle image",
-    "Calendar":"Calendrier"
+    "Calendar":"Calendrier",
+    "All images":"Toutes les images",
+    "Category":"Catégorie",
+    "Ascending":"Ascendant",
+    "Descending":"Descendant",
+    "Shuffle images":"Mélanger les images",
+    "Sort by Position":"Trier par position",
+    "Sort by date":"Trier par date"
 }

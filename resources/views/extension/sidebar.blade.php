@@ -62,10 +62,10 @@
             </a>
           </li>
           <li class="nav-item">
-            <a  class="nav-link {{ (request()->is('images/create')) ? 'active' : '' }}"  href="{{ route('images.create') }}">
-              <i class=" nav-icon fas fa-images"></i>
+            <a  class="nav-link {{ (request()->is('documents/create')) ? 'active' : '' }}"  href="{{ route('documents.create') }}">
+              <i class=" nav-icon fas fa-file"></i>
               <p>
-                {{__('New image')}}
+                {{__('New document')}}
               </p>
             </a>
           </li>
